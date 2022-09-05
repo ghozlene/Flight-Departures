@@ -1,4 +1,3 @@
-const PORT = 5000;
 const axios = require('axios').default;
 const express = require('express');
 const cors = require('cors');
@@ -29,5 +28,6 @@ app.get('/flights', (req, res) => {
 			console.error(error);
 		});
 });
+const PORT = process.env.PORT;
 
-app.listen(PORT, console.log('running on port Number', +PORT));
+app.listen(PORT | 5000, console.log('running on port Number', +PORT));
