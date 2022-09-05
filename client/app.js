@@ -1,12 +1,13 @@
 const tableBody = document.getElementById('table-body');
 
-const getFlight = () => {
-	fetch('http://localhost:5000/flights')
-		.then((res) => res.json())
-		.then((flights) => {
-			populateTable(flights);
-		})
-		.catch((err) => console.log(err));
+const getFlight = async () => {
+	try {
+		const response = await fetch('http://localhost:5000/flights');
+		const data = await response.json();
+		populateTable(data);
+	} catch (err) {
+		console.log(err);
+	}
 };
 
 getFlight();
